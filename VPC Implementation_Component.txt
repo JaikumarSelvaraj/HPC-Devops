@@ -1,4 +1,4 @@
-Resource
+						Resource
 CIDR/ IP address
 
 Component
