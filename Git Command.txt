@@ -1,0 +1,11 @@
+Navigate to the directory
+
+git remote add origin https://github.com/JaikumarSelvaraj/AWS.git
+git status
+git remote -v
+git add Dir
+
+git commit -m "commit version"
+git status
+
+git push -u origin master

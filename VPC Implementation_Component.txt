@@ -1,0 +1,62 @@
+VPC Component
+
+Resource
+CIDR/ IP address
+
+Component
+Subnet
+Gateway
+Routing
+NAT
+Security Group
+
+Subnet
+
+	Public -> Choose the CIDR Address (10.0.0.0/24)
+	
+	Private -> Choose the CIDR Address (10.0.1.0/24)
+	
+Internet Gateway
+
+	Just Attach to VPC
+
+Routing Table
+
+	Public - All Source Redirect to IGW
+		
+	Private - Any source 0.0.0.0/0 to NAT Gateway
+
+Security Group
+
+	Public SG (Inbound all traffic from TCP 0.0.0.0/0)
+	
+	Private SG (All Traffic coming from Public SecG group as Source)
+		
+Instance
+
+	Public - Fronent Server -> Attach Public Subnet -> 
+	
+	Private -> Backend Server -> Attach Private subnet ->
+	
+	Note: Since Even private Subent(10.0.0.0/24) connected to IGW it is called Public Subnet
+	
+Create NAT Gatway
+
+	Associate with Public Subnet
+	
+	Assign Elastic IP 
+	
+
+	
+
+    
+	
+		
+
+
+
+
+
+
+
+

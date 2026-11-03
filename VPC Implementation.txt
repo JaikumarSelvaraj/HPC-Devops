@@ -65,9 +65,9 @@ Prv IP Instances -> Able to connect from public IP Ec2 Fronent Server
 
 				-----------------------------------------------------------------
 				
-				For BackEnd Server -> Create NAT (As public Subnet ) |  Private Route -> Add NAT as Destination 
+				For BackEnd Server -> Create NAT (Associate public Subnet ) |  Private Route -> Add NAT as Destination 
 
-For Private System to get internet withing system -> To Assign NAT -> Assign the Routing Table.
+For Backend System to get internet withing system -> To Assign NAT -> Assign the Routing Table.
 
 VPC -> NAT Gateway -> Create NAT Gateway -> My NAT -> Zonal(specific Avaiablity zone) ->  Subnet -> Public Subnet -> Connectivity type as Public -> Elastic IP Allocatino ID (Static IP) -> 
 
