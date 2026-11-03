@@ -1,0 +1,52 @@
+When does the billing of an Amazon EC2 system begin?
+A. It starts when the Status column for your distribution changes from Creating to Deployed.
+B. It starts as soon as you click the create instance option on the main EC2 console.
+C. It starts when your instance reaches 720 instance hours.
+D. It starts when Amazon EC2 initiates the boot sequence of an AM instance
+
+
+
+
+What happens to Amazon EBS root device volumes, by default, when an instance terminates?
+A. Amazon EBS root device volumes are moved to IAM.
+B. Amazon EBS root device volumes are copied into Amazon RDS.
+C. Amazon EBS root device volumes are automatically deleted.`
+D. Amazon EBS root device volumes remain in the database until you delete the
+
+
+
+Which of the following would you use to list your AWS Import/Exportjobs?
+A. Amazon RDS
+B. AWS Import/Export Web Service Tool
+C. Amazon S3 REST API
+D. AWS Elastic Beanstal
+
+
+
+
+
+An organization has a statutory requirement to protect the data at rest for the S3 objects. Which of the below mentioned options need not be enabled by the
+organization to achieve data security?
+A. MFA delete for S3 object
+B. Client side encryption
+C. Bucket versioning
+D. Data replication
+
+In Amazon CIoudFront, if you use Amazon EC2 instances and other custom origins with CIoudFront, it is recommended to .
+A. not use Elastic Load Balancing
+B. restrict Internet communication to private instances while allowing outgoing traffic
+C. enable access key rotation for CIoudWatch metrics
+D. specify the URL of the load balancer for the domain name of your origin server
+
+
+
+
+
+
+
+Which of the following features are provided by Amazon EC2?
+A. Exadata Database Machine, Optimized Storage Management, Flashback Technology, and Data Warehousing
+B. Instances, Amazon Machine Images (AMIs), Key Pairs, Amazon EBS Volumes, Firewall, Elastic IP address, Tags, and Virtual Private Clouds (VPCs)
+C. Real Application Clusters (RAC), Elasticache Machine Images (EMIs), Data Warehousing, Flashback Technology, Dynamic IP address
+D. Exadata Database Machine, Real Application Clusters (RAC), Data Guard, Table and Index Partitioning, and Data Pump Compression
+

@@ -1,0 +1,134 @@
+						VPC-2 (Create VPC & Subnet)
+
+10.0.0.0/65536
+
+Network -> VPC -> Default VPC
+
+Create VPC -> My VPC 10.0.0.0/16 (16 to 28 * This is range we can create IP Range ) 
+
+Subnet -> Create Subnet -> (Public Subnet (CIDR->10.0.0.0/24 -(256 IPS) / Private Subnet(10.0.1.0/24))
+
+Subnet -> 3 Default subnet will show.
+
+-> MY VPC Subnet -> My pub-sub -> 10.0.0.0/24 
+
+-> My VPC -> Subent (My Prvt Sub) -> 10.0.1.0/24 -> We can get 251 IP - Remaining 5 IP not allocated.
+
+
+				-----------------------------------------------------------------
+				Creating IGW + Routing Table + Public Route (Add internet Gateway)			
+				
+
+Internet Gateway -> Create IGW -> IGW ->
+
+	-> Attach VPC -> My VPC -> 
+	
+Creating Routing Table -> 1)Pub RT 2)Prv RT -> Associate(Integrate) ->
+
+Route Table -> My-PVT-RT -> Choose the VPC ->  ( Similary for Pub)
+
+Create Routing Table
+
+Select RT -> Publ -> Edit -> Pub-subnet
+
+RT -> PrvRT -> Edit -> Prv-subnet
+
+	Routing Table Associate with IGW
+
+RT -> Pub-RT -> Edit Route -> Add Route -> ""0.0.0.0/0 -> Internet Gatway (which we created previous Step) ""
+
+				-----------------------------------------------------------------
+				Create Two Security group | Pvt SG(Incoming as Public Security Group)
+				
+
+Create Security Group
+
+VPC ->Security Group -> Creating Security Group  -> Public SG -> Choose the correct VPC -> Inbound rules -> All TCP -> Source Anywhere(0.0.0.0)
+
+My Pvt SG -> MY VPC -> ALL TCP -> ""Source -> *** Public Security Group (which Traffict come through only public security group)"".
+
+Pub Subnet -> Application Frontend end server Prv Sub -> Backend server -> Database
+
+				-----------------------------------------------------------------
+				
+				Create Two Ec2 Instances | Frontend as Public | Backend as Private subnet
+
+Create Two Instances associated with specific Subnet/IP
+
+Create Instance -> MY VPC -> Fronend Server -> Assgn Public subnet/IP -> Select EXT group -> my pub sg -> Launch Instances -> 
+
+Create Instance -> Backend Server ->  Private Sub -> my VPC -> Private subnet -> Pravte Security group -> 
+
+Public IP Instance -> able to connect from outside
+
+Prv IP Instances -> Able to connect from public IP Ec2 Fronent Server
+
+				-----------------------------------------------------------------
+				
+				For BackEnd Server -> Create NAT (As public Subnet ) |  Private Route -> Add NAT as Destination 
+
+For Private System to get internet withing system -> To Assign NAT -> Assign the Routing Table.
+
+VPC -> NAT Gateway -> Create NAT Gateway -> My NAT -> Zonal(specific Avaiablity zone) ->  Subnet -> Public Subnet -> Connectivity type as Public -> Elastic IP Allocatino ID (Static IP) -> 
+
+Routing Table -> Routes -> Edit PVT RT -> Edit RT -> Des (ALL Traffic 0.0.0.0/0) -> Target( NAT Gatway )-> which we create previously  
+
+
+Delete Everything
+-> Ec2
+-> NAT
+-> Elastic IP Release
+-> VPC 
+Sub,Security, MY -IGW
+
+VPC is very important 
+VPC Peering
+VPC Peering Vs Transit Gateway
+VPC Flow logs
+
+-----------------------------------------------------------------------------------------------------------------
+							VPC - 1
+							
+							VPC 
+
+3 Tier Architecture
+
+Presentation  Layer + Logic Layer + Data Layer
+
+Load -> 1)Classic + 2)Application Load balancer(Http,Https,Path based routing,URL based routing)  
+
+Network -> VPC -> 
+
+CIDR -> Classless Inter Domain Routing
+
+10.0.0.0/32  -> 10.0.0.0 - 10.0.0.0   -> 1 IP
+10.0.0.0/31  -> 10.0.0.0 - 10.0.0.1   -> 2 IPs
+10.0.0.0/30  -> 10.0.0.0 - 10.0.0.3   -> 4 IPs
+10.0.0.0/29  -> 10.0.0.0 - 10.0.0.7   -> 8 IPs
+10.0.0.0/28  -> 10.0.0.0 - 10.0.0.15  -> 16 IPs
+10.0.0.0/27  -> 10.0.0.0 - 10.0.0.31  -> 32 IPs
+10.0.0.0/26  -> 10.0.0.0 - 10.0.0.63  -> 64 IPs
+10.0.0.0/25  -> 10.0.0.0 - 10.0.0.127  -> 128 IPs
+10.0.0.0/24  -> 10.0.0.0 - 10.0.0.255  -> 256 IPs
+
+2^0 -> 1
+2^1 -> 2
+...
+24 -> 2^8 -> 256 (IPs)
+20 -> 2^12 -> 4096 (IPs)
+
+32-> 8.8.8.8
+
+
+VPC -> 
+
+CIDR Calculator - https://cidr.xyz/
+
+Engineer
+Server Engineer
+Storage Engineer
+Security Engineer
+Network Engineer
+Database Engineer
+Application Engineer
+-------------------------------------------------------------------------------------------------------------------------------
