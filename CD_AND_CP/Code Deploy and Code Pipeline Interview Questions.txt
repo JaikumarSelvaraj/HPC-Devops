@@ -1,0 +1,53 @@
+Q: What is continuous delivery?
+Continuous delivery is a software development practice where code changes are automatically built, tested, and prepared for a release to production. AWS CodePipeline is a service that helps you practice continuous delivery. To learn more, see Continuous Delivery.
+
+Q: What is continuous integration?
+is a software development practice where developers regularly merge their code changes into a central repository, after which automated builds and tests are run. Continuous integration most often refers to the build or integration stage of the software release process and entails both an automation component (e.g. a CI or build service) and a cultural component (e.g. learning to integrate frequently). The key goals of continuous integration are to find and address bugs quicker, improve software quality, and reduce the time it takes to validate and release new software updates. To learn more, see Continuous Integration.
+
+Q: What is AWS CodePipeline?
+AWS CodePipeline is a continuous delivery service that enables you to model, visualize, and automate the steps required to release your software. With AWS CodePipeline, you model the full release process for building your code, deploying to pre-production environments, testing your application, and releasing it to production. AWS CodePipeline then builds, tests, and deploys your application according to the defined workflow every time there is a code change. You can integrate partner tools and your own custom tools into any stage of the release process to form an end-to-end continuous delivery solution.
+
+Q: Why should I use AWS CodePipeline to set up a continuous delivery pipeline?
+By automating your build, test, and release processes, AWS CodePipeline enables you to increase the speed and quality of your software updates by running all new changes through a consistent set of quality checks.
+
+Q: Which products can be integrated with the continuous delivery pipeline I build with AWS CodePipeline?
+AWS CodePipeline integrates with AWS services like AWS CodeCommit, Amazon S3, AWS CodeDeploy, AWS Elastic Beanstalk, AWS OpsWorks, and AWS Lambda. In addition, AWS CodePipeline integrates with a number of partner tools. For details see the product integrations page. Finally, you can write your own custom actions and integrate any existing tool with AWS CodePipeline. For more information, see Create and Add a Custom Action in AWS CodePipeline in the AWS CodePipeline User Guide.
+
+Q: Can I use AWS Identity and Access Management (IAM) to manage access to AWS CodePipeline?
+Yes. AWS CodePipeline supports resource-level permissions. You can specify which user can perform which action on a pipeline. For example, you can provide a user with read-only access to a pipeline if you want the user to see the pipeline status, but not modify the pipeline. You can also set permissions for any stage or action in a pipeline. For more information about using IAM with AWS CodePipeline, see the Access Permissions Reference. 
+
+Q: Can I enable the pipeline in one AWS account to be accessed by an IAM user in another AWS account?
+Yes. You can create an IAM role in the AWS account that owns the pipeline to delegate access to the pipeline and any related resources to an IAM user in another account. For information, see Tutorial: Delegate Access Across AWS Accounts Using IAM Roles and Configure Cross-Account Access to a Pipeline.
+
+Q: Is there a way to quickly test out a pipeline without going through the entire setup process?
+You can use our Pipeline Starter Kit to automatically provision a four-stage pipeline without needing to set it up yourself. The pipeline has a source stage, a Jenkins build stage, a deploy to staging environment stage, and a deploy to production stage.
+
+
+
+
+AWS CI/CD Interview Questions and Answers for Cloud Developers
+1. Which command is used to make a local copy of AWS CodeCommit repository ?
+2. Which command is used to save the changes after editing the local files ?
+3. Which command is used to upload the changes to AWS CodeCommit repository ?
+4. How to Switch to another branch in the local repo ?
+5. What is the AWS Command to create a commit for a repository that adds cyberithub.txt file to a repository named TestRepo in the master branch ?
+6. Which of the Source Repositories CodeBuild supports ?
+7. Can we use CodeBuild with Jenkins ?
+8. What is the benefit of Using CodeBuild with Jenkins ?
+9. When does "git pull" command is preferred over "git clone" command ?
+10. Can we specify an user action in AWS CodePipeline ?
+11. What is the minimum user permission required to see the Pipeline status in AWS Codepipeline ?
+12. Which Cloud Service can be used to check the history of AWS CodePipeline API Call ?
+13. Which AWS CLI command can be used to create a copy of an existing pipeline ?
+14. Which AWS CLI command can be used to get the JSON structure of our existing pipeline ?
+15. What is Pipeline in AWS CodePipeline ?
+16. What is a Stage ?
+17. What is an Action ?
+18. What are the different order in which Pipeline action can occur ?
+19. What is an artifact ?
+20. Can a transition be disabled between any stage ?
+21. What is a deployment group in AWS CodeDeploy ?
+22. How AWS Codedeploy is different from other deploy and management service such as AWS Elastic Beanstalk and AWS OpsWorks ?
+23. What are the parameters we need to specify for a deployment in AWS Codedeploy ?
+24. What are the changes we need to do in our code to deploy using AWS Codedeploy ?
+25. Can we use CodeBuild to automate release process in Cloud ?
