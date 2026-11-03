@@ -9,6 +9,7 @@ Gateway
 Routing
 NAT
 Security Group
+Ec2
 
 Subnet
 
@@ -34,7 +35,7 @@ Security Group
 		
 Instance
 
-	Public - Fronent Server -> Attach Public Subnet -> 
+	Public - Fronent Server -> Attach Public Subnet -> " Also Create Public IP from AWS console to access the machine "
 	
 	Private -> Backend Server -> Attach Private subnet ->
 	
