@@ -77,9 +77,14 @@ Routing Table -> Routes -> Edit PVT RT -> Edit RT -> Des (ALL Traffic 0.0.0.0/0)
 Delete Everything
 -> Ec2
 -> NAT
+-> Internet Gateway
+-> Subnet
+-> Routing table
 -> Elastic IP Release
 -> VPC 
 Sub,Security, MY -IGW
+
+
 
 VPC is very important 
 VPC Peering
