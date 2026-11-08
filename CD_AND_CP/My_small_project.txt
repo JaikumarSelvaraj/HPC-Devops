@@ -1,0 +1,182 @@
+1)User Creation in IAM
+	CDCP-Admin_dev -> Administrator access -> Create User
+	User -> CDCP-Admin_dev -> Security -> Access Key
+		UsedFor : During aws push local.zip s3:bucket
+	
+	AKIARN3RRXMKMNW5HGLA - Key
+	XUATrwAmv3Q0b3mimWWum490cak5BSMC1opaxsml - Secret Acces Key
+
+2)Role (Global)
+	Ec2-S3 Role -> s3 -> "S3 full acess" -> 
+		Usedfor: Deployment server contact with s3 service to fetch code
+	
+	codedeploy -> "AWSCodeDeployRole" -> CDCP_codedeploy
+		Usedfor: During Codedeploy application Creation
+
+3)Instances
+	Admin-Developer-server  
+		Create Security Group ->(Create Security group) All TCP -> Type -> All TCP -> Source -> Anywhere
+		
+	Deployment Server -> Additional Tag -> Key & Value -> MyWebServer & Deployment -> Add Role -> "" CDCP_ec2_s3-roles ""
+			
+		-> Login into console -> Yum update -> 
+		
+4)Installation & Configuration
+
+	Deployment Server 
+		
+			yum install ruby -y 
+			yum install wget -y
+			
+			Install codedeploy agent
+			wget https://aws-codedeploy-us-east-2.s3.us-east-2.amazonaws.com/latestv2/install
+			service codedeploy-agent status
+			
+			After this we won't touch Deployment server
+			
+	
+	Development Server
+			
+			awscli configure
+			
+			Create webapplication Code 
+					[root@ip-172-31-43-202 MyWebApplication]# ls -R
+					appsec.yml  index.html  scripts  webapp.zip
+
+					./scripts:
+					httpd_install.sh  httpd_start.sh  httpd_stop.sh
+					
+					I hope appspec.yml it is codedeploy service file
+					
+					 zip -r webapp.zip index.html appspec.yml scripts/
+					
+5)Create S3 Bucket 
+	
+	Public Access
+	
+	Version enablement
+
+6)create codedeploy service on "" Development server ""
+
+	Create Application -> Application name -> Ec2/OnPremises
+	
+	aws deploy create-application --application-name sampleapp (with COmmand)
+	
+	appspec.yml  index.html  scripts  webapp.zip (have following files on root dir)
+	
+	/root/MyWebApplication -> From the following directory
+	
+	aws deploy push --application-name sampleapp --s3-location s3://my-cicd-source-bucket-098485517076-ap-south-2-an/webapp.zip
+		(We can upload complete zip file from here fresh upload)
+		
+		#aws s3 ls s3://gir-sampleapp/ (Testing whether it can be able to download)
+		
+		NOTE: For this push it is doesn't require CDCP_ec2_s3-roles access, Instead "aws admin User privileage require"
+	
+		What_Tt_Do: is an AWS CodeDeploy CLI command. It packages your application files and uploads the deployment bundle to an Amazon S3 bucket
+	
+	
+	6.1) Create Deployment Group 
+	
+		Choose the Application which is created recently
+	
+			Create Deploymentgroup
+			Attach Codedeploy roles (AWSCodeDeployRole- Policy role)
+			
+				Attach Ec2 Instance Key/value(Tag) pair
+				
+			INPUT
+				codedeploy role (dfeault one)
+			
+		
+		6.2)Create Deployment
+		
+			Deployment mode : Standard
+			
+			Revision Type : Application Stored in Amazon S3
+			Choose the s3 bucket which is created recently
+			Once it is published, we can able to access the site.
+			
+		Verify -> click the deployment -> we will get execution ID -> status whether is it success or failed.
+		
+		INPUT
+			S3 Bucket
+			
+7)code Pipleline
+
+	Create custom last option -> MyCp-Deployment-31 -> Superspened -> New service role -> Source -> S3 -> Choose bucket -> s3 Object Key:sampleapp1.zip		
+	Enable EventBridge
+	Disable Retry stage failure
+	
+	Skip Build stage
+	
+	Skip Test Stage
+	
+	Deploy -> AWS Code Deploy -> Applicationname -> Deployment Group
+	Disable: configure automatic rollback on stage failure
+	Disable: Enable automatic retry on stage failure
+	
+	Initially it will fail(Since version is not abled).
+	
+	INPUT
+		S3 Bucket
+		CodeDeploy which we create On Privious step
+		
+	Component Troubleshotting
+		if codedeploy work on previous step then only 
+		on next stage code pipeline will work.
+	
+8)Update Code
+
+	Update index.html
+
+	[root@ip-172-31-43-202 MyWebApplication]# zip -r ../webapp1.zip .
+	  adding: scripts/ (stored 0%)
+	  adding: scripts/httpd_install.sh (stored 0%)
+	  adding: scripts/httpd_start.sh (deflated 21%)
+	  adding: scripts/httpd_stop.sh (deflated 21%)
+	  adding: appspec.yml (deflated 53%)
+	  adding: webapp.zip (stored 0%)
+	  adding: index.html (deflated 31%)
+	[root@ip-172-31-43-202 MyWebApplication]# ls
+	appspec.yml  index.html  scripts  webapp.zip
+	[root@ip-172-31-43-202 MyWebApplication]# cd ..
+	[root@ip-172-31-43-202 ~]# ls
+	MyWebApplication  install  install.1  install.2  script.sh  webapp1.zip
+	[root@ip-172-31-43-202 ~]# aws s3 cp webapp1.zip s3://my-cicd-source-bucket-098485517076-ap-south-2-an/
+	upload: ./webapp1.zip to s3://my-cicd-source-bucket-098485517076-ap-south-2-an/webapp1.zip
+
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+			
+	
+			
