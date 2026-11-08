@@ -3,8 +3,8 @@
 	User -> CDCP-Admin_dev -> Security -> Access Key
 		UsedFor : During aws push local.zip s3:bucket
 	
-	AKIARN3RRXMKMNW5HGLA - Key
-	XUATrwAmv3Q0b3mimWWum490cak5BSMC1opaxsml - Secret Acces Key
+	AXXXXXXXXX- Key
+	XXXXXXXXXXXXXXX - Secret Acces Key
 
 2)Role (Global)
 	Ec2-S3 Role -> s3 -> "S3 full acess" -> 
@@ -17,7 +17,7 @@
 	Admin-Developer-server  
 		Create Security Group ->(Create Security group) All TCP -> Type -> All TCP -> Source -> Anywhere
 		
-	Deployment Server -> Additional Tag -> Key & Value -> MyWebServer & Deployment -> Add Role -> "" CDCP_ec2_s3-roles ""
+	Deployment Server -> Additional Tag -> Key & Value -> MyWebServer & Deployment -> Add Role -> "" CDCP_ec2_s3-roles "" (if role is not added we will get an error -> ec2 doesn't download package from s3)
 			
 		-> Login into console -> Yum update -> 
 		
@@ -100,7 +100,7 @@
 		Verify -> click the deployment -> we will get execution ID -> status whether is it success or failed.
 		
 		INPUT
-			S3 Bucket
+			S3 Bucket (Everything Straight forward only about s3 bucket configuration)
 			
 7)code Pipleline
 
@@ -116,7 +116,7 @@
 	Disable: configure automatic rollback on stage failure
 	Disable: Enable automatic retry on stage failure
 	
-	Initially it will fail(Since version is not abled).
+	Build Custom Pipeline -> Pipelinename -> Supersed 
 	
 	INPUT
 		S3 Bucket
@@ -143,7 +143,7 @@
 	[root@ip-172-31-43-202 MyWebApplication]# cd ..
 	[root@ip-172-31-43-202 ~]# ls
 	MyWebApplication  install  install.1  install.2  script.sh  webapp1.zip
-	[root@ip-172-31-43-202 ~]# aws s3 cp webapp1.zip s3://my-cicd-source-bucket-098485517076-ap-south-2-an/
+	[root@ip-172-31-43-202 ~]# aws s3 cp webapp.zip s3://my-cicd-source-bucket-098485517076-ap-south-2-an/
 	upload: ./webapp1.zip to s3://my-cicd-source-bucket-098485517076-ap-south-2-an/webapp1.zip
 
 					
