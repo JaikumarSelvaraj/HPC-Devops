@@ -1,0 +1,23 @@
+Installed, configured, and optimized enterprise server hardware, including Dell iDRAC, HP iLO, IBM
+Blade/Chassis servers,Nvidia DGX ,Firmware updates and ensuring seamless integration into HPC
+and virtualization infrastructures.
+
+Managed GPU infrastructure including NVIDIA DGX A100 and NVIDIA DGX B200 systems.
+
+Hands-on experience in integrating new GPU SuperPODs and CPU nodes into existing HPC clusters, ensuring seamless scalability, resource allocation, and minimal downtime.
+
+
+Manage and maintain NVIDIA DGX systems (including DGX B200), performing GPU, CPU, and motherboard health checks, firmware upgrades, and hardware validation
+
+Perform DGX B200 firmware upgrades, GPU and motherboard replacements/upgrades, and post-upgrade validation.
+
+
+Configure and manage MIG profiles and validate GPU topology for multi-tenant workloads.
+
+Using Docker and managed Kubernetes clusters, deploying and monitoring pods, namespaces, and services. Worked with Run:AI for GPU resource orchestration, workload scheduling, and efficient GPU sharing
+
+--------------------------------------------------------------------------------------------------------------------
+Added and configured new CPU/GPU nodes in HPC clusters and ensured seamless integration
+with scheduler and storage environments.
+
+Administer and operate large-scale HPC clusters supporting CPU and GPU workloads for research and enterprise users.

@@ -1,0 +1,11 @@
+Object: Generate terraform code for small CDCP project
+Region name:ap-southeast-1
+Project details : Can you give small project with codedeploy-agent to host the webapplicaiton, whenever file changed in s3 bucket it needs to update application.
+
+1 EC2 instance
+1 S3 buckets
+IAM roles Require IAM role
+1 CodeDeploy application
+1 Deployment group
+1 CodePipeline
+1 EventBridge rule

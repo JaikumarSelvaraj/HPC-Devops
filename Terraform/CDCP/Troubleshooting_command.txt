@@ -1,0 +1,25 @@
+[root@ip-172-31-43-202 ~]# aws deploy create-application --application-name sampleapp_evn
+{
+    "applicationId": "f43dcbb8-802c-4584-b445-c918de6f3cc1"
+}
+
+
+[root@ip-172-31-43-202 ~]# aws deploy push --application-name sampleapp_evn --s3-location s3://my-cicd-source-bucket-098485517076-ap-south-2-an/webapp.zip
+
+/root/appspec.yml was not found
+
+
+[root@ip-172-31-43-202 ~]# cd MyWebApplication/
+[root@ip-172-31-43-202 MyWebApplication]# aws deploy push --application-name sampleapp_evn --s3-location s3://my-cicd-source-bucket-098485517076-ap-south-2-an/webapp.zip
+To deploy with this revision, run:
+aws deploy create-deployment --application-name sampleapp_evn --s3-location bucket=my-cicd-source-bucket-098485517076-ap-south-2-an,key=webapp.zip,bundleType=zip,eTag=5e1e2a49b4e33fcbe0c6868ec1c2fcac,version=sOODRLlU.dULClyjY7OSI6KxZAcVFwSK --deployment-group-name <deployment-group-name> --deployment-config-name <deployment-config-name> --description <description>
+
+
+Troubleshooting Order 
+
+Can you give small project with codedeploy-agent to host the webapplicaiton, whenever file changed in s3 bucket it needs to update application. Project Kind :CDCP
+
+
+aws deploy create-application --application-name mumbai_sampleapp_Hyder
+
+aws deploy push --application-name mumbai_sampleapp_Hyder --s3-location s3://my-cicd-source-bucket-098485517076-ap-south-2-an/webapp.zip
