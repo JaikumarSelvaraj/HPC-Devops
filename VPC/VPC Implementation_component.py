@@ -20,17 +20,22 @@ Internet Gateway
 
 	Just Attach to VPC
 
+Create NAT Gatway
+
+	-> Associate with Public Subnet
+	
+        ->  Assign Elastic IP 
+
 Routing Table
 
-	Public -> Attach Public Subnet "Assoication"
-
-		Public - All Source Redirect to IGW
+	Public 
+        -> Attach Public Subnet "Assoication"
+            -> Public - All Source Redirect to IGW (Edit Route)
 	
-	Private -> Attach Private Subnet "Association"
+	Private 
+        -> Attach Private Subnet "Association"
+            ->  Private - Any source 0.0.0.0/0 to NAT Gateway (Edit Route)
 		
-		Private - Any source 0.0.0.0/0 to NAT Gateway
-		
-	NOTE: Every route table associate with one subnet.
 
 Security Group
 
@@ -45,22 +50,22 @@ Instance
 	Private -> Backend Server -> Attach Private subnet ->
 	
 	Note: Since Even private Subent(10.0.0.0/24) connected to IGW it is called Public Subnet
-	
-Create NAT Gatway
-
-	Associate with Public Subnet
-	
-	Assign Elastic IP 
 
 AWS Console Role
 
 	Create Role -> Attach a)Ec2 full access b)VPC full access.
 --------------------------------------------------------------------------------------------------------------------------
+Straight Forward
+1)Public RT -> Public Subet
+2)Private RT -> Private subnet
+
 	
 What is little bit we have to sense - which is not straight forward
-1)Route table
+1)NAT Gateway -> Public Subnet + Elastic IP
+
+1.1)Route table Target
 Pub RT -> IGW 
-PVT RT -> NAT
+Pvt RT -> NAT
 
 2)Security Group
 PUB SG -> Any traffic 0.0.0.0/0
