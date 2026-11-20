@@ -1,0 +1,25 @@
+To Create Role
+---------------
+
+aws iam create-role --role-name vmimport --assume-role-policy-document "file://C:\Users\thang\Pictures\Migration/trust-policy.json"
+
+aws iam create-role --role-name vmimport --assume-role-policy-document "file://C:\Users\thang\Pictures\Migration\Migration&SnowFamily\trust-policy.json"
+
+"C:\Users\thang\Pictures\Migration\Migration&SnowFamily\trust-policy.json"
+
+To Attach Policy To Role
+------------------------
+aws iam put-role-policy --role-name vmimport --policy-name vmimport --policy-document "file://C:\Users\thang\Pictures\Migration\Migration&SnowFamily\role-policy.json"
+
+
+To Convert Windows 7 OS -> AMI:
+-------------------------------
+aws ec2 import-image --description "Windows 7 ova" --disk-containers "file://C:\Users\thang\Pictures\Migration\Migration&SnowFamily\containers.json"
+
+
+To Check Status Update:
+-----------------------
+
+aws ec2 describe-import-image-tasks --import-task-ids [ImportTaskId]
+
+aws ec2 describe-import-image-tasks --import-task-ids import-ami-9d888d3979aa0901t

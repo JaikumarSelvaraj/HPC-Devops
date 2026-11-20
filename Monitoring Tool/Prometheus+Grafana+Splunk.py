@@ -123,3 +123,9 @@ cloudtrail -> Logs -> Event Mangement
 
 splunk -> SIEM -> security Information & Event management
 -----------------------------------------------------------------------------------------------------------------
+                            Prometheus - GPU Node
+
+For a GPU Compute Node in an HPC cluster, you generally need two exporters to monitor GPU and Linux system metrics using Prometheus:
+1. Node Exporter – Monitors Linux operating system and hardware metrics.
+2. NVIDIA DCGM Exporter – Monitors NVIDIA GPU-specific metrics.
+-----------------------------------------------------------------------------------------------------------------
